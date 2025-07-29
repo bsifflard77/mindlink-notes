@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for Dynamic Values */
+:root {
+  --vh: 1vh;
+  --safe-area-inset-top: 0px;
+  --safe-area-inset-bottom: 0px;
+  --safe-area-inset-left: 0px;
+  --safe-area-inset-right: 0px;
+}
+
+/* Base Mobile Optimizations */
+@layer base {
+  /* Smooth font rendering on all devices */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Mobile-first body setup */
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+  
+  /* Prevent zoom on inputs on iOS */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  
+  /* Better button defaults for mobile */
+  button {
+    -webkit-appearance: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+}
+
+/* Component Layer - Reusable Mobile Components */
+@layer components {
+  /* Mobile-optimized button base */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    min-height: 44px; /* iOS recommended touch target */
+  }
+  
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 active:bg-blue-800;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500 active:bg-gray-400;
+  }
+  
+  /* Mobile input styling */
+  .input {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-base placeholder-gray-500 transition-colors duration-200 focus:border-blue-500 focus:outline-none;
+    min-height: 44px;
+  }
+  
+  .input:focus {
+    @apply ring-2 ring-blue-500 ring-opacity-20;
+  }
+  
+  /* Card component for mobile */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200;
+  }
+  
+  .card-hover {
+    @apply card transition-shadow duration-200 hover:shadow-md active:shadow-lg;
+  }
+}
+
+/* Utility classes for mobile */
+@layer utilities {
+  /* Safe area utilities */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  /* Mobile viewport height */
+  .h-screen-mobile {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Touch-friendly spacing */
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
