@@ -94,3 +94,10 @@ export class AppError extends Error {
     this.details = details;
   }
 }
+
+// Transcript segment for YouTube videos
+export interface TranscriptSegment {
+  text: string;
+  start: number;  // timestamp in seconds
+  duration: number; // duration in seconds
+}

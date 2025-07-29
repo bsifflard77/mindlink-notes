@@ -33,7 +33,7 @@
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^9.0.1",
     "tailwind-merge": "^2.0.0",
-    "youtube-transcript": "^1.0.6",
+    "youtube-transcript": "^1.2.1",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
