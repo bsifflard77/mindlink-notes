@@ -156,7 +156,7 @@ function extractBasicKeywords(transcript: string): string[] {
     .filter(word => /^[A-Z][a-z]+/.test(word) && word.length > 3)
     .slice(0, 8);
   
-  return [...new Set(keywords)]; // Remove duplicates
+  return Array.from(new Set(keywords)); // Remove duplicates
 }
 
 function generateBasicSummary(transcript: string): string {
